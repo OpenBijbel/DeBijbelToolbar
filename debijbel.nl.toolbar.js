@@ -84,6 +84,16 @@
 		
 			$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertaling").text());
 		});
+		
+		/**
+ 	 	* Transform Translation naming-convention from reftagger to naming-convention of Biblia
+ 	 	*/
+       		if ( translation = "NIV" ) { var BibliaTranslation = "niv2011" };
+    		if ( translation = "ESV" ) { var BibliaTranslation = "esv" };
+ 		if ( translation = "KJV" ) { var BibliaTranslation = "kjv1900" };
+ 		if ( translation = "NKJV" ) { var BibliaTranslation = "nkjv" };
+ 		if ( translation = "NLT" ) { var BibliaTranslation = "nlt" };
+		
  	}
 
  	/**
@@ -95,16 +105,28 @@
 		});
  	}
 
+
  	/**
  	 * Split columns
  	 */
  	function splitColumns(extraColumnCount) {
  		$(".tr-1").after(
  			"<div class='openbijbelvertalingtekst'>"
- 				+ '<div class="openbijbelkolomtitel openbijbelvertaling">[[|]]</div>'
+ 				+ '<div class="openbijbelkolomtitel openbijbelvertaling">[[|]]' + BibliaTranslation + '</div>'
+ 				+ '<!-- Embedded Bible. http://biblia.com/plugins/embeddedbible -->'
+ 				+ '<div id="OpenBijbelEmbeddedBiblia" class="OpenBijbelEmbeddedBiblia">'
+ 				+ '<biblia:bible layout="minimal" resource="niv2011" width="28%" height="800" startingReference="Ge1.1"></biblia:bible>'
+ 				+ '<!-- If you’re including multiple Biblia widgets, you only need this script tag once -->'
+ 				+ '<script src="//biblia.com/api/logos.biblia.js"></script>'
+ 				+ '<script>logos.biblia.init();</script>'
+ 				+ '</div>'
  			+ '</div>'
- 			+ '<style class="reftaggerkolomversiestyle">.rtContainer {position:fixed !important;right: 30px !important; top: 240px !important; max-width: 30% !important; height: 800px !important; padding: 10px !important;}</style>'
+ 			+ '<style class="reftaggerkolomversiestyle">.OpenBijbelEmbeddedBiblia {color: red;}</style>'
  		);
+
+/**
+ 	 * Tijdelijk is bovenstaande code hardcoded NIV en begintekst Genesis 1
+ 	 */
 
 		$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertalingnaam").text());
 

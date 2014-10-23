@@ -117,9 +117,10 @@ var BibliaTranslation = "NIV";
  				+ '<div class="openbijbelkolomtitel openbijbelvertaling">[[|]]</div>'
  				+ '<!-- Embedded Bible. http://biblia.com/plugins/embeddedbible -->'
  				+ '<div id="OpenBijbelEmbeddedBiblia" class="OpenBijbelEmbeddedBiblia">'
- 				+ '<biblia:bible layout="minimal" resource="' + BibliaTranslation + '" width="350" height="800" startingReference="Ge1.1"></biblia:bible>'
+ 				+ '<biblia:bible layout="minimal" resource="' + BibliaTranslation + '" width="100px" height="200px" startingReference="Ge1.1"></biblia:bible>'
  				+ '<!-- If you’re including multiple Biblia widgets, you only need this script tag once -->'
- 				+ '<script src="//biblia.com/api/logos.biblia.js"></script>'
+ 				+ '<script src="http://biblia.com/api/logos.biblia.js"></script>'
+ 				+ '<script>logos.biblia.init();</script>'
  				+ '</div>'
  			+ '</div>'
  		);
@@ -157,8 +158,6 @@ var BibliaTranslation = "NIV";
 				"width": "30%"
 			});
 		}
-		
-		logos.biblia.init();
 		
  	}
 

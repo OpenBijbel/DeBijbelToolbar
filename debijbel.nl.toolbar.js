@@ -120,15 +120,15 @@ var BibliaTranslation = "NIV";
  				+ '<biblia:bible layout="minimal" resource="' + BibliaTranslation + '" width="350" height="800" startingReference="Ge1.1"></biblia:bible>'
  				+ '<!-- If you’re including multiple Biblia widgets, you only need this script tag once -->'
  				+ '<script src="http://biblia.com/api/logos.biblia.js"></script>'
- 				+ '<script>logos.biblia.init();</script>'
  				+ '</div>'
  			+ '</div>'
- 			+ '<style class="reftaggerkolomversiestyle">.OpenBijbelEmbeddedBiblia {color: red;}</style>'
  		);
 
-/**
- 	 * Tijdelijk is bovenstaande code hardcoded NIV en begintekst Genesis 1
- 	 */
+		logos.biblia.init();
+
+		/**
+	 	 * Tijdelijk is bovenstaande code hardcoded begintekst Genesis 1
+	 	 */
 
 		$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertalingnaam").text());
 

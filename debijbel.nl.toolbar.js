@@ -10,6 +10,8 @@
 		}
 	};
 
+var BibliaTranslation = "NIV";
+
 // using anonymous self executing function to protect the functions in their own scope
 // see: http://markdalgleish.com/2011/03/self-executing-anonymous-functions/
  (function (window, document, $, undefined) {
@@ -88,11 +90,11 @@
 		/**
  	 	* Transform Translation naming-convention from reftagger to naming-convention of Biblia
  	 	*/
-       		if ( translation = "NIV" ) { var BibliaTranslation = "niv2011" };
-    		if ( translation = "ESV" ) { var BibliaTranslation = "esv" };
- 		if ( translation = "KJV" ) { var BibliaTranslation = "kjv1900" };
- 		if ( translation = "NKJV" ) { var BibliaTranslation = "nkjv" };
- 		if ( translation = "NLT" ) { var BibliaTranslation = "nlt" };
+       		if ( translation = "NIV" ) { BibliaTranslation = "niv2011" };
+    		if ( translation = "ESV" ) { BibliaTranslation = "esv" };
+ 		if ( translation = "KJV" ) { BibliaTranslation = "kjv1900" };
+ 		if ( translation = "NKJV" ) { BibliaTranslation = "nkjv" };
+ 		if ( translation = "NLT" ) { BibliaTranslation = "nlt" };
 		
  	}
 

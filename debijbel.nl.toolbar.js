@@ -119,7 +119,7 @@ var BibliaTranslation = "NIV";
  				+ '<div id="OpenBijbelEmbeddedBiblia" class="OpenBijbelEmbeddedBiblia">'
  				+ '<biblia:bible layout="minimal" resource="' + BibliaTranslation + '" width="350" height="800" startingReference="Ge1.1"></biblia:bible>'
  				+ '<!-- If you’re including multiple Biblia widgets, you only need this script tag once -->'
- 				+ '<script src="http://biblia.com/api/logos.biblia.js"></script>'
+ 				+ '<script src="//biblia.com/api/logos.biblia.js"></script>'
  				+ '</div>'
  			+ '</div>'
  		);

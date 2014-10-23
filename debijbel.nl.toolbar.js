@@ -115,7 +115,7 @@ var BibliaTranslation = "NIV";
  		$(".tr-1").after(
  			'<div class="openbijbelvertalingtekst">'
  				+ '<div class="openbijbelkolomtitel openbijbelvertaling">[[|]]</div>'
- 				+ '<biblia:bible layout="minimal" resource="' + BibliaTranslation + '" width="100px" height="200px" startingReference="Ge1.1"></biblia:bible>'
+ 				+ '<biblia:bible layout="minimal" resource="' + BibliaTranslation + '" width="350px" height="800px" startingReference="Ge1.1"></biblia:bible>'
  			+ '</div>'
  		);
 

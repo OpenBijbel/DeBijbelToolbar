@@ -124,8 +124,6 @@ var BibliaTranslation = "NIV";
  			+ '</div>'
  		);
 
-		logos.biblia.init();
-
 		/**
 	 	 * Tijdelijk is bovenstaande code hardcoded begintekst Genesis 1
 	 	 */
@@ -159,6 +157,9 @@ var BibliaTranslation = "NIV";
 				"width": "30%"
 			});
 		}
+		
+		logos.biblia.init();
+		
  	}
 
  	// This variable will be used to attach a jQuery reference to the Open Bijbel top bar. 

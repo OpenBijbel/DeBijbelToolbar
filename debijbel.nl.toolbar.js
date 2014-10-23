@@ -113,13 +113,9 @@ var BibliaTranslation = "NIV";
  	 */
  	function splitColumns(extraColumnCount) {
  		$(".tr-1").after(
- 			"<div class='openbijbelvertalingtekst'>"
+ 			'<div class="openbijbelvertalingtekst">'
  				+ '<div class="openbijbelkolomtitel openbijbelvertaling">[[|]]</div>'
- 				+ '<!-- Embedded Bible. http://biblia.com/plugins/embeddedbible -->'
- 				+ '<div id="OpenBijbelEmbeddedBiblia" class="OpenBijbelEmbeddedBiblia">'
  				+ '<biblia:bible layout="minimal" resource="' + BibliaTranslation + '" width="100px" height="200px" startingReference="Ge1.1"></biblia:bible>'
- 				+ '<!-- If you’re including multiple Biblia widgets, you only need this script tag once -->'
-  				+ '</div>'
  			+ '</div>'
  		);
 

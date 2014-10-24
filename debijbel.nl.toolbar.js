@@ -99,9 +99,13 @@ var bibliaStartingReference = "Gen1.1";
 			$(this).text($(this).attr('id'));
 		});
 		var startVerse = $("sup").first().text();
+		bibliaStartingReference = startVerse;
 	//	alert(startVerse);
  	}
 
+ 	/**
+ 	 * Adds a Biblia embedment in the extra column
+ 	 */
 	function embedBiblia() {
 		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="niv2011" width="400px" height="1200px" startingReference="' + bibliaStartingReference + '"></biblia:bible>');
 
@@ -122,11 +126,8 @@ var bibliaStartingReference = "Gen1.1";
  			+ '</div>'
  		);
 
-		embedBiblia();
 
-		/**
-	 	 * Tijdelijk is bovenstaande code hardcoded begintekst Genesis 1
-	 	 */
+		embedBiblia();
 
 		$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertalingnaam").text());
 

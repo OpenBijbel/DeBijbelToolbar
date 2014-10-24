@@ -10,8 +10,6 @@
 		}
 	};
 
-//global biblia settings (default settings)
-var bibliaStartingReference = "Gen1.1";
 
 // using anonymous self executing function to protect the functions in their own scope
 // see: http://markdalgleish.com/2011/03/self-executing-anonymous-functions/
@@ -99,7 +97,6 @@ var bibliaStartingReference = "Gen1.1";
 			$(this).text($(this).attr('id'));
 		});
 		var startVerse = $("sup").first().text();
-		var bibliaStartingReference = startVerse;
 		alert(startVerse);
  	}
 
@@ -107,7 +104,7 @@ var bibliaStartingReference = "Gen1.1";
  	 * Adds a Biblia embedment in the extra column
  	 */
 	function embedBiblia() {
-		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="niv2011" width="400px" height="1200px" startingReference="' + bibliaStartingReference + '"></biblia:bible>');
+		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="niv2011" width="400px" height="1200px" startingReference="' + startVerse + '"></biblia:bible>');
 
 		var url = "http://biblia.com/api/logos.biblia.js";
 		$.getScript( url, function() {

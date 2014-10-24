@@ -10,6 +10,21 @@
 		}
 	};
 
+ 	/**
+ 	 * Adds a Bibles.org embedment in the extra column
+ 	 */
+	(function(w, d, s, e, id) {
+		  w._bhparse = w._bhparse || [];
+		  function l() {
+		    if (d.getElementById(id)) return;
+			    var n = d.createElement(s), x = d.getElementsByTagName(s)[0];
+			    n.id = id; n.async = true; n.src = '//bibles.org/linker/js/client.js';
+			    x.parentNode.insertBefore(n, x);
+		  }
+		  (w.attachEvent) ? w.attachEvent('on' + e, l) : w.addEventListener(e, l, false);
+		})(window, document, 'script', 'load', 'bw-highlighter-src');
+		
+window._bhparse = window._bhparse || [];
 
 // using anonymous self executing function to protect the functions in their own scope
 // see: http://markdalgleish.com/2011/03/self-executing-anonymous-functions/
@@ -99,23 +114,6 @@
 		var startVerse = $("sup").first().text();
  	}
 
- 	/**
- 	 * Adds a Bibles.org embedment in the extra column
- 	 */
-	function embedBible() {
-		(function(w, d, s, e, id) {
-		  w._bhparse = w._bhparse || [];
-		  function l() {
-		    if (d.getElementById(id)) return;
-			    var n = d.createElement(s), x = d.getElementsByTagName(s)[0];
-			    n.id = id; n.async = true; n.src = '//bibles.org/linker/js/client.js';
-			    x.parentNode.insertBefore(n, x);
-		  }
-		  (w.attachEvent) ? w.attachEvent('on' + e, l) : w.addEventListener(e, l, false);
-		})(window, document, 'script', 'load', 'bw-highlighter-src');
-
-		_bhparse.push('OpenBijbelEmbeddedBible');
-	}
 	
  	/**
  	 * Split columns
@@ -130,7 +128,8 @@
 		var startVerse = $("sup").first().text();
 		$(".OpenBijbelEmbeddedBible").html("<h3>"+ startVerse +"</h3><p></p>");
 
-		embedBible();
+		_bhparse.push('OpenBijbelEmbeddedBible');
+//		window._bhparse.push('OpenBijbelEmbeddedBible');
 
 		$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertalingnaam").text());
 

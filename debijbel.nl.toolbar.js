@@ -103,7 +103,6 @@
  	 * Adds a Bibles.org embedment in the extra column
  	 */
 	function embedBible() {
-		var startVerse = $("sup").first().text();
 		$(".OpenBijbelEmbeddedBible").html(
 		"<script id='bw-highlighter-config'>"
 		+	"(function(w, d, s, e, id) {"
@@ -126,14 +125,14 @@
  	 * Split columns
  	 */
  	function splitColumns(extraColumnCount) {
-		var startVerse = $("sup").first().text();
  		$(".tr-1").after(
  			'<div class="openbijbelvertalingtekst">'
  				+ '<div id="OpenBijbelEmbeddedBible" class="OpenBijbelEmbeddedBible">'
- 				+ startVerse
 				+ '</div>'
  			+ '</div>'
  		);
+		var startVerse = $("sup").first().text();
+		$(".OpenBijbelEmbeddedBible").append("<h3>"+ startVerse +"</h3>");
 
 		embedBible();
 

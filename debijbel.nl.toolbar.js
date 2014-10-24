@@ -10,8 +10,8 @@
 		}
 	};
 
+//global biblia settings (default settings)
 var bibliaTranslation = "niv2011";
-
 var bibliaStartingReference = "Ge1.1";
 
 // using anonymous self executing function to protect the functions in their own scope
@@ -40,6 +40,7 @@ var bibliaStartingReference = "Ge1.1";
  	 }
 
  	 var refTaggerLoaded = false;
+  	 var reftagkolomWeergave = false;
 
  	 /**
  	  * Loads the refTagger script with a protocol independant URL

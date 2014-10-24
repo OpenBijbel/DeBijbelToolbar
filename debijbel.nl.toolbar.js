@@ -127,9 +127,6 @@ window._bhparse = window._bhparse || [];
 		var startVerse = $("sup").first().text();
 		$(".OpenBijbelEmbeddedBible").html("Hebrews 11");
 
-//		_bhparse.push('OpenBijbelEmbeddedBible');
-		window._bhparse.push('OpenBijbelEmbeddedBible');
-
 		$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertalingnaam").text());
 
 		$(".openbijbelvertalingtekst").css({
@@ -262,7 +259,10 @@ window._bhparse = window._bhparse || [];
 			$('.row').css("margin-left","0px");
 			$(this).hide();
 			openBijbelToolBar.find('.kiesreftagtooltip').show();
-			
+
+	//		_bhparse.push('OpenBijbelEmbeddedBible');
+			window._bhparse.push('OpenBijbelEmbeddedBible');
+
 			kolomWeergave = true;
 		});
 

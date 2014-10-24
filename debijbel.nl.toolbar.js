@@ -111,7 +111,6 @@ window._bhparse = window._bhparse || [];
  		$("sup").each(function(){
 			$(this).text($(this).attr('id'));
 		});
-		var startVerse = $("sup").first().text();
  	}
 
 	
@@ -128,8 +127,8 @@ window._bhparse = window._bhparse || [];
 		var startVerse = $("sup").first().text();
 		$(".OpenBijbelEmbeddedBible").html("<h3>"+ startVerse +"</h3><p></p>");
 
-		_bhparse.push('OpenBijbelEmbeddedBible');
-//		window._bhparse.push('OpenBijbelEmbeddedBible');
+//		_bhparse.push('OpenBijbelEmbeddedBible');
+		window._bhparse.push('OpenBijbelEmbeddedBible');
 
 		$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertalingnaam").text());
 

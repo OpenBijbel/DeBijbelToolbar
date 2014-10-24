@@ -100,16 +100,26 @@
  	}
 
  	/**
- 	 * Adds a Biblia embedment in the extra column
+ 	 * Adds a Bibles.org embedment in the extra column
  	 */
-	function embedBiblia() {
+	function embedBible() {
 		var startVerse = $("sup").first().text();
-		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="niv2011" width="400px" height="1200px" startingReference="' + startVerse + '"></biblia:bible>');
-
-		var url = "http://biblia.com/api/logos.biblia.js";
-		$.getScript( url, function() {
-			logos.biblia.init();
-		});
+		$(".OpenBijbelEmbeddedBible").html(
+		"<script id='bw-highlighter-config'>"
+		+	"(function(w, d, s, e, id) {"
+		+		"w._bhparse = w._bhparse || [];"
+		+		"function l() {"
+		+		    "if (d.getElementById(id)) return;"
+		+			    "var n = d.createElement(s), x = d.getElementsByTagName(s)[0];"
+		+			    "n.id = id; n.async = true; n.src = '//bibles.org/linker/js/client.js';"
+		+			    "x.parentNode.insertBefore(n, x);"
+		+		"}"
+		+		"(w.attachEvent) ? w.attachEvent('on' + e, l) : w.addEventListener(e, l, false);"
+		+	"})(window, document, 'script', 'load', 'bw-highlighter-src');"
+		+ "</script>"
+		+ "<script>"
+		+	"_bhparse.push('OpenBijbelEmbeddedBible');"
+		+ "</script>");
 	}
 	
  	/**
@@ -118,13 +128,13 @@
  	function splitColumns(extraColumnCount) {
  		$(".tr-1").after(
  			'<div class="openbijbelvertalingtekst">'
- 				+ '<div id="OpenBijbelEmbeddedBiblia" class="OpenBijbelEmbeddedBiblia">'
+ 				+ '<div id="OpenBijbelEmbeddedBible" class="OpenBijbelEmbeddedBible">'
+ 				+ startVerse
 				+ '</div>'
  			+ '</div>'
  		);
 
-
-		embedBiblia();
+		embedBible();
 
 		$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertalingnaam").text());
 
@@ -182,7 +192,7 @@
 			openBijbelToolBar.find(".openbijbelknoppenarea").append(
 				'&nbsp; | &nbsp;'
 				+ '<span class="openbijbelknoptoelichting"> [[|]] Kolom: </span>'
-				+ '<span class="openbijbelknop weergavekeus kiesbibliakolom">Toevoegen</span>'
+				+ '<span class="openbijbelknop weergavekeus kiesbiblekolom">Toevoegen</span>'
 				+ '<span class="openbijbelknop weergavekeus kiesreftagtooltip">Verwijderen</span>'
 			);
 		}
@@ -253,7 +263,7 @@
  			
 		});
 
- 		openBijbelToolBar.on('click', '.kiesbibliakolom', function() {
+ 		openBijbelToolBar.on('click', '.kiesbiblekolom', function() {
  			splitColumns($('.translation').length);
 			$('.row').css("margin-left","0px");
 			$(this).hide();
@@ -277,7 +287,7 @@
 			}
 
 			$(this).hide();
-			openBijbelToolBar.find('.kiesbibliakolom').show();
+			openBijbelToolBar.find('.kiesbiblekolom').show();
 		});
  	}
 

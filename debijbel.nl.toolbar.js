@@ -11,7 +11,7 @@
 	};
 
 //global biblia settings (default settings)
-var bibliaStartingReference = "Mt1.1";
+var bibliaStartingReference = "Gen1.1";
 
 // using anonymous self executing function to protect the functions in their own scope
 // see: http://markdalgleish.com/2011/03/self-executing-anonymous-functions/

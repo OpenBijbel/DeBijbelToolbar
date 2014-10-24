@@ -272,9 +272,9 @@ var bibliaStartingReference = "Ge1.1";
 			// breedte teruggeven op basis van aantal aanwezige kolommen
 
 			if (aantalKolommen > 1) {
-			     $(".translation").css("width","45%");
+			     $(".translation").css("width","30%");
 			} else {
-			     $(".translation").css("width","90%");	
+			     $(".translation").css("width","70%");	
 			}
 
 			$(this).hide();

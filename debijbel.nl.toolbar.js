@@ -99,6 +99,7 @@ var bibliaStartingReference = "Ge1.1";
 			$(this).text($(this).attr('id'));
 		});
 		var startVerse = $("sup").first().text();
+		alert(startVerse);
  	}
 
 	function embedBiblia() {
@@ -256,7 +257,7 @@ var bibliaStartingReference = "Ge1.1";
 
  		openBijbelToolBar.on('click', '.kiesbibliakolom', function() {
  			splitColumns($('.translation').length);
-
+			$('.row').css("margin-left","0px");
 			$(this).hide();
 			openBijbelToolBar.find('.kiesreftagtooltip').show();
 			
@@ -272,9 +273,9 @@ var bibliaStartingReference = "Ge1.1";
 			// breedte teruggeven op basis van aantal aanwezige kolommen
 
 			if (aantalKolommen > 1) {
-			     $(".translation").css("width","30%");
+			     $(".translation").css("width","45%");
 			} else {
-			     $(".translation").css("width","70%");	
+			     $(".translation").css("width","90%");	
 			}
 
 			$(this).hide();

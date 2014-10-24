@@ -113,6 +113,11 @@ var bibliaStartingReference = "Ge1.1";
 
 	function embedBiblia() {
 		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="' + bibliaTranslation + '" width="350px" height="1200px" startingReference="' + bibliaStartingReference + '"></biblia:bible>');
+
+		var url = "http://biblia.com/api/logos.biblia.js";
+		$.getScript( url, function() {
+			logos.biblia.init();
+		});
 	}
 	
  	/**
@@ -132,11 +137,6 @@ var bibliaStartingReference = "Ge1.1";
 		/**
 	 	 * Tijdelijk is bovenstaande code hardcoded begintekst Genesis 1
 	 	 */
-
-		var url = "http://biblia.com/api/logos.biblia.js";
-		$.getScript( url, function() {
-			logos.biblia.init();
-		});
 
 		$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertalingnaam").text());
 

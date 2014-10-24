@@ -10,7 +10,9 @@
 		}
 	};
 
-var BibliaTranslation = "NIV";
+var bibliaTranslation = "niv2011";
+
+var bibliaStartingReference = "Ge1.1";
 
 // using anonymous self executing function to protect the functions in their own scope
 // see: http://markdalgleish.com/2011/03/self-executing-anonymous-functions/
@@ -90,11 +92,11 @@ var BibliaTranslation = "NIV";
 		/**
  	 	* Transform Translation naming-convention from reftagger to naming-convention of Biblia
  	 	*/
-       		if ( translation = "NIV" ) { BibliaTranslation = "niv2011" };
-    		if ( translation = "ESV" ) { BibliaTranslation = "esv" };
- 		if ( translation = "KJV" ) { BibliaTranslation = "kjv1900" };
- 		if ( translation = "NKJV" ) { BibliaTranslation = "nkjv" };
- 		if ( translation = "NLT" ) { BibliaTranslation = "nlt" };
+       		if ( translation = "NIV" ) { bibliaTranslation = "niv2011" };
+    		if ( translation = "ESV" ) { bibliaTranslation = "esv" };
+ 		if ( translation = "KJV" ) { bibliaTranslation = "kjv1900" };
+ 		if ( translation = "NKJV" ) { bibliaTranslation = "nkjv" };
+ 		if ( translation = "NLT" ) { bibliaTranslation = "nlt" };
 		
  	}
 
@@ -105,9 +107,13 @@ var BibliaTranslation = "NIV";
  		$("sup").each(function(){
 			$(this).text($(this).attr('id'));
 		});
+		var startVerse = $("sup").first().text();
  	}
 
-
+	function embedBiblia() {
+		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="' + bibliaTranslation + '" width="350px" height="1200px" startingReference="' + bibliaStartingReference + '"></biblia:bible>');
+	}
+	
  	/**
  	 * Split columns
  	 */
@@ -115,9 +121,12 @@ var BibliaTranslation = "NIV";
  		$(".tr-1").after(
  			'<div class="openbijbelvertalingtekst">'
  				+ '<div class="openbijbelkolomtitel openbijbelvertaling">[[|]]</div>'
- 				+ '<biblia:bible layout="minimal" resource="' + BibliaTranslation + '" width="350px" height="800px" startingReference="Ge1.1"></biblia:bible>'
+ 				+ '<div id="OpenBijbelEmbeddedBiblia" class="OpenBijbelEmbeddedBiblia">'
+				+ '</div>'
  			+ '</div>'
  		);
+
+		embedBiblia();
 
 		/**
 	 	 * Tijdelijk is bovenstaande code hardcoded begintekst Genesis 1
@@ -254,6 +263,11 @@ var BibliaTranslation = "NIV";
  			var translation = $(this).data('translation');
 
  			chooseTranslation(translation);
+ 			
+ 			if (reftagkolomWeergave) {
+ 				embedBiblia();
+ 			}
+ 			
  		});
 
  		openBijbelToolBar.on('click', '.kiesReset', function() {
@@ -261,6 +275,11 @@ var BibliaTranslation = "NIV";
 
  			// choose default translation
  			chooseTranslation("NIV");
+ 			
+ 			if (reftagkolomWeergave) {
+ 				embedBiblia();
+ 			}
+ 			
 		});
 
  		openBijbelToolBar.on('click', '.kiesreftagkolom', function() {
@@ -268,13 +287,16 @@ var BibliaTranslation = "NIV";
 
 			$(this).hide();
 			openBijbelToolBar.find('.kiesreftagtooltip').show();
+			
+			reftagkolomWeergave = true;
 		});
 
  		openBijbelToolBar.on('click', '.kiesreftagtooltip', function() {
  			// doet niks
 			$('.openbijbelvertalingtekst').remove();
-			$('.reftaggerkolomversiestyle').remove();
-
+			
+			reftagkolomWeergave = false;
+			
 			// breedte teruggeven op basis van aantal aanwezige kolommen
 
 			if (aantalKolommen > 1) {

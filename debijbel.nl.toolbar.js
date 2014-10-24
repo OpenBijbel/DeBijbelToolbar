@@ -11,7 +11,6 @@
 	};
 
 //global biblia settings (default settings)
-var bibliaTranslation = "niv2011";
 var bibliaStartingReference = "Ge1.1";
 
 // using anonymous self executing function to protect the functions in their own scope
@@ -40,7 +39,7 @@ var bibliaStartingReference = "Ge1.1";
  	 }
 
  	 var refTaggerLoaded = false;
-  	 var reftagkolomWeergave = false;
+  	 var kolomWeergave = false;
 
  	 /**
  	  * Loads the refTagger script with a protocol independant URL
@@ -90,15 +89,6 @@ var bibliaStartingReference = "Ge1.1";
 			$('.openbijbelvertaling').text(openBijbelToolBar.find(".openbijbelvertaling").text());
 		});
 		
-		/**
- 	 	* Transform Translation naming-convention from reftagger to naming-convention of Biblia
- 	 	*/
-       		if ( translation = "NIV" ) { bibliaTranslation = "niv2011" };
-    		if ( translation = "ESV" ) { bibliaTranslation = "esv" };
- 		if ( translation = "KJV" ) { bibliaTranslation = "kjv1900" };
- 		if ( translation = "NKJV" ) { bibliaTranslation = "nkjv" };
- 		if ( translation = "NLT" ) { bibliaTranslation = "nlt" };
-		
  	}
 
  	/**
@@ -112,7 +102,7 @@ var bibliaStartingReference = "Ge1.1";
  	}
 
 	function embedBiblia() {
-		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="' + bibliaTranslation + '" width="350px" height="1200px" startingReference="' + bibliaStartingReference + '"></biblia:bible>');
+		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="niv2011" width="400px" height="1200px" startingReference="' + bibliaStartingReference + '"></biblia:bible>');
 
 		var url = "http://biblia.com/api/logos.biblia.js";
 		$.getScript( url, function() {
@@ -126,7 +116,6 @@ var bibliaStartingReference = "Ge1.1";
  	function splitColumns(extraColumnCount) {
  		$(".tr-1").after(
  			'<div class="openbijbelvertalingtekst">'
- 				+ '<div class="openbijbelkolomtitel openbijbelvertaling">[[|]]</div>'
  				+ '<div id="OpenBijbelEmbeddedBiblia" class="OpenBijbelEmbeddedBiblia">'
 				+ '</div>'
  			+ '</div>'
@@ -145,16 +134,6 @@ var bibliaStartingReference = "Ge1.1";
 			"width": "30%",
 			"height": "100%",
 			"padding": "10px"
-		});
-
-		// kopje
-		$(".openbijbelkolomtitel").css({
-			"background-color": "#412972",
-			"color": "white",
-			"padding": "10px",
-			"right": "0px",
-			"margin-top": "2px",
-			"width": "120px"
 		});
 
 		// breedte van translation - 30 voor bij 2 kolommen en 65 bij 1
@@ -187,7 +166,7 @@ var bibliaStartingReference = "Ge1.1";
  		var toolbarContent = 
 			'<div class="openbijbelvertalingnaam openbijbelvertaling">[[|]] &nbsp; NIV</div>'
 			+ '<div class="openbijbelknoppenarea">'
-				+ '<span class="openbijbelknoptoelichting">Andere vertaling: </span>'
+				+ '<span class="openbijbelknoptoelichting">Tooltip vertaling: </span>'
 				+ '<span class="openbijbelknop vertalingkeus NIV" data-translation="NIV">NIV</span> '
 				+ '<span class="openbijbelknop vertalingkeus ESV" data-translation="ESV">ESV</span> '
 				+ '<span class="openbijbelknop vertalingkeus KJV" data-translation="KJV">KJV</span> '
@@ -203,9 +182,9 @@ var bibliaStartingReference = "Ge1.1";
 		if (cntTranslations < 3) {
 			openBijbelToolBar.find(".openbijbelknoppenarea").append(
 				'&nbsp; | &nbsp;'
-				+ '<span class="openbijbelknoptoelichting">Weergave: </span>'
-				+ '<span class="openbijbelknop weergavekeus kiesreftagkolom">Extra Kolom</span>'
-				+ '<span class="openbijbelknop weergavekeus kiesreftagtooltip">Tooltip</span>'
+				+ '<span class="openbijbelknoptoelichting"> [[|]] Kolom: </span>'
+				+ '<span class="openbijbelknop weergavekeus kiesbibliakolom">Toevoegen</span>'
+				+ '<span class="openbijbelknop weergavekeus kiesreftagtooltip">Verwijderen</span>'
 			);
 		}
 
@@ -265,10 +244,6 @@ var bibliaStartingReference = "Ge1.1";
 
  			chooseTranslation(translation);
  			
- 			if (reftagkolomWeergave) {
- 				embedBiblia();
- 			}
- 			
  		});
 
  		openBijbelToolBar.on('click', '.kiesReset', function() {
@@ -277,13 +252,9 @@ var bibliaStartingReference = "Ge1.1";
  			// choose default translation
  			chooseTranslation("NIV");
  			
- 			if (reftagkolomWeergave) {
- 				embedBiblia();
- 			}
- 			
 		});
 
- 		openBijbelToolBar.on('click', '.kiesreftagkolom', function() {
+ 		openBijbelToolBar.on('click', '.kiesbibliakolom', function() {
  			splitColumns($('.translation').length);
 
 			$(this).hide();
@@ -307,7 +278,7 @@ var bibliaStartingReference = "Ge1.1";
 			}
 
 			$(this).hide();
-			openBijbelToolBar.find('.kiesreftagkolom').show();
+			openBijbelToolBar.find('.kiesbibliakolom').show();
 		});
  	}
 

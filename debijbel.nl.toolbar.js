@@ -132,7 +132,7 @@ var bibliaStartingReference = "Ge1.1";
 
 		$(".openbijbelvertalingtekst").css({
 			"float": "right",
-			"width": "30%",
+			"width": "40%",
 			"height": "100%",
 			"padding": "10px"
 		});
@@ -140,11 +140,11 @@ var bibliaStartingReference = "Ge1.1";
 		// breedte van translation - 30 voor bij 2 kolommen en 65 bij 1
 		if (extraColumnCount == 1) {
 			$(".translation").css({
-				"width": "65%"
+				"width": "58%"
 			});
 		} else if (extraColumnCount == 2) {
 			$(".translation").css({
-				"width": "30%"
+				"width": "29%"
 			});
 		}
 		

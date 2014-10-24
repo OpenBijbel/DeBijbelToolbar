@@ -99,7 +99,7 @@ var bibliaStartingReference = "Ge1.1";
 			$(this).text($(this).attr('id'));
 		});
 		var startVerse = $("sup").first().text();
-		alert(startVerse);
+	//	alert(startVerse);
  	}
 
 	function embedBiblia() {
@@ -261,14 +261,14 @@ var bibliaStartingReference = "Ge1.1";
 			$(this).hide();
 			openBijbelToolBar.find('.kiesreftagtooltip').show();
 			
-			reftagkolomWeergave = true;
+			kolomWeergave = true;
 		});
 
  		openBijbelToolBar.on('click', '.kiesreftagtooltip', function() {
  			// doet niks
 			$('.openbijbelvertalingtekst').remove();
 			
-			reftagkolomWeergave = false;
+			kolomWeergave = false;
 			
 			// breedte teruggeven op basis van aantal aanwezige kolommen
 

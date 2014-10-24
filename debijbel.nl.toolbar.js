@@ -126,6 +126,7 @@
  	 * Split columns
  	 */
  	function splitColumns(extraColumnCount) {
+		var startVerse = $("sup").first().text();
  		$(".tr-1").after(
  			'<div class="openbijbelvertalingtekst">'
  				+ '<div id="OpenBijbelEmbeddedBible" class="OpenBijbelEmbeddedBible">'

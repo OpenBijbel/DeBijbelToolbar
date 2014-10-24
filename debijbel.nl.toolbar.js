@@ -125,7 +125,7 @@ window._bhparse = window._bhparse || [];
  			+ '</div>'
  		);
 		var startVerse = $("sup").first().text();
-		$(".OpenBijbelEmbeddedBible").html("<h3>"+ startVerse +"</h3><p></p>");
+		$(".OpenBijbelEmbeddedBible").html("Hebrews 11");
 
 //		_bhparse.push('OpenBijbelEmbeddedBible');
 		window._bhparse.push('OpenBijbelEmbeddedBible');

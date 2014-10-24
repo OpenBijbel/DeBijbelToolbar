@@ -99,15 +99,15 @@ var bibliaStartingReference = "Gen1.1";
 			$(this).text($(this).attr('id'));
 		});
 		var startVerse = $("sup").first().text();
-		bibliaStartingReference = startVerse;
-	//	alert(startVerse);
+		var bibliaStartingReference = startVerse;
+		alert(startVerse);
  	}
 
  	/**
  	 * Adds a Biblia embedment in the extra column
  	 */
 	function embedBiblia() {
-		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="niv2011" width="400px" height="1200px" startingReference="' + bibliaStartingReference + '"></biblia:bible>');
+		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="niv2011" width="400px" height="1200px" startingReference="' + $("sup").first().text() + '"></biblia:bible>');
 
 		var url = "http://biblia.com/api/logos.biblia.js";
 		$.getScript( url, function() {

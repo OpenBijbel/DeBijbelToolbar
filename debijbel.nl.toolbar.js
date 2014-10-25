@@ -37,7 +37,6 @@
  	 }
 
  	 var refTaggerLoaded = false;
-  	 var kolomWeergave = false;
 
  	 /**
  	  * Loads the refTagger script with a protocol independant URL
@@ -259,14 +258,11 @@
 			$(this).hide();
 			openBijbelToolBar.find('.kiesreftagtooltip').show();
 			
-			kolomWeergave = true;
 		});
 
  		openBijbelToolBar.on('click', '.kiesreftagtooltip', function() {
  			// doet niks
 			$('.openbijbelvertalingtekst').remove();
-			
-			kolomWeergave = false;
 			
 			// breedte teruggeven op basis van aantal aanwezige kolommen
 

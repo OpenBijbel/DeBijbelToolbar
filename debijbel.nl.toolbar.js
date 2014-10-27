@@ -109,8 +109,6 @@
 		$.getScript( url, function() {
 			logos.biblia.init();
 		});
-		
-		$("#embedded-resource").css("border","0px solid #ffffff");
 	}
 	
  	/**

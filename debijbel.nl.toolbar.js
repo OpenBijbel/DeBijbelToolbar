@@ -78,7 +78,6 @@
 			$(".rtBibleRef").each(function(){
 				var previousTranslation = $(this).attr("data-version");
 				$(this).attr("data-version", translation.toLowerCase());
-			//	alert($(this).attr("href"));
 				$(this).attr("href", $(this).attr("href").replace(previousTranslation, translation.toLowerCase()));
 			});
 

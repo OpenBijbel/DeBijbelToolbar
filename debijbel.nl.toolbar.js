@@ -104,7 +104,9 @@
 	function embedBiblia() {
 		var startVerse = $("sup").first().text();
 		$(".OpenBijbelEmbeddedBiblia").html('<biblia:bible layout="minimal" resource="niv2011" width="400px" height="1200px" startingReference="' + startVerse + '"></biblia:bible>');
-
+		
+		$(".embedded-resource").css("border","none");
+		
 		var url = "//biblia.com/api/logos.biblia.js";
 		$.getScript( url, function() {
 			logos.biblia.init();

@@ -79,7 +79,7 @@
 				var previousTranslation = $(this).attr("data-version");
 				$(this).attr("data-version", translation.toLowerCase());
 				$(this).attr("href").replace( previousTranslation, translation.toLowerCase());
-				alert($(this).attr("href").replace( previousTranslation, translation.toLowerCase()));
+				alert("test");
 			});
 
 			openBijbelToolBar.find(".openbijbelvertaling").html("[[|]] &nbsp; " + translation + " ");

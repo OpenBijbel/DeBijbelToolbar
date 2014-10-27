@@ -78,7 +78,7 @@
 			$(".rtBibleRef").each(function(){
 				var previousTranslation = $(this).attr("data-version");
 				$(this).attr("data-version", translation.toLowerCase());
-				$(this).attr("href").replace('/'previousTranslation'.*$/', translation.toLowerCase());
+				$(this).attr("href").replace("/"+previousTranslation+".*$/", translation.toLowerCase());
 			});
 
 			openBijbelToolBar.find(".openbijbelvertaling").html("[[|]] &nbsp; " + translation + " ");
